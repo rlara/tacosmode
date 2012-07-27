@@ -1,7 +1,9 @@
 <div style="padding:20px 0 30px">
   <h1>Lista de sucursales</h1>
 </div>
-
+<% if @branches.empty?  %>
+  <h3>Agrega una sucursal </h3>
+<% elsif %>
  <table class="table table-striped">
 <thead>
   <tr>
@@ -25,7 +27,7 @@
 </tbody>
 <% end %>
 </table>
-
+<% end  %>
 <br />
 
 <%= link_to 'Nueva Sucursal', new_branch_path, :class => "btn btn-primary" %>
