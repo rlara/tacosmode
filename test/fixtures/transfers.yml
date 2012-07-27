@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  branches: 
+  mode: MyString
+  name_dealer: MyString
+  date_output: 2012-07-27 15:17:34
+  date_supply: 2012-07-27 15:17:34
+
+two:
+  branches: 
+  mode: MyString
+  name_dealer: MyString
+  date_output: 2012-07-27 15:17:34
+  date_supply: 2012-07-27 15:17:34

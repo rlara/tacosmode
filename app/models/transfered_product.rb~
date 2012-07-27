@@ -1,0 +1,5 @@
+class TransferedProduct < ActiveRecord::Base
+  belongs_to :Transfers
+  belongs_to :products
+  attr_accessible :quantity
+end

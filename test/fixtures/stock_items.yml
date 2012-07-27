@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  branches: 
+  products: 
+  quantity: 1
+
+two:
+  branches: 
+  products: 
+  quantity: 1

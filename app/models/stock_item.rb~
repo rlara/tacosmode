@@ -1,0 +1,5 @@
+class StockItem < ActiveRecord::Base
+  belongs_to :branch
+  has_one :product
+  attr_accessible :quantity
+end

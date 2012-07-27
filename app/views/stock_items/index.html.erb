@@ -1,0 +1,27 @@
+<h1>Listing stock_items</h1>
+
+<table>
+  <tr>
+    <th>Branches</th>
+    <th>Products</th>
+    <th>Quantity</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stock_items.each do |stock_item| %>
+  <tr>
+    <td><%= stock_item.branches %></td>
+    <td><%= stock_item.products %></td>
+    <td><%= stock_item.quantity %></td>
+    <td><%= link_to 'Show', stock_item %></td>
+    <td><%= link_to 'Edit', edit_stock_item_path(stock_item) %></td>
+    <td><%= link_to 'Destroy', stock_item, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Stock item', new_stock_item_path %>

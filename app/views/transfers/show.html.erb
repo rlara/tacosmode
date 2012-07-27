@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Branches:</b>
+  <%= @transfer.branches %>
+</p>
+
+<p>
+  <b>Mode:</b>
+  <%= @transfer.mode %>
+</p>
+
+<p>
+  <b>Name dealer:</b>
+  <%= @transfer.name_dealer %>
+</p>
+
+<p>
+  <b>Date output:</b>
+  <%= @transfer.date_output %>
+</p>
+
+<p>
+  <b>Date supply:</b>
+  <%= @transfer.date_supply %>
+</p>
+
+
+<%= link_to 'Edit', edit_transfer_path(@transfer) %> |
+<%= link_to 'Back', transfers_path %>

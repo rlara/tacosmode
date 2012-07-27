@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  has_many :stock_items
+  belongs_to :stock_item
   has_many :transfered_products
   attr_accessible :date, :lote, :name, :sku, :units
 

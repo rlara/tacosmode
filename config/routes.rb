@@ -1,4 +1,10 @@
 Tacosmode::Application.routes.draw do
+  resources :transfers
+
+  resources :stock_items
+
+  resources :transfered_products
+
   resources :products
 
   resources :branches

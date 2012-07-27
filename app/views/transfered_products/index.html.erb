@@ -1,0 +1,27 @@
+<h1>Listing transfered_products</h1>
+
+<table>
+  <tr>
+    <th>Transfers</th>
+    <th>Products</th>
+    <th>Quantity</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @transfered_products.each do |transfered_product| %>
+  <tr>
+    <td><%= transfered_product.Transfers %></td>
+    <td><%= transfered_product.products %></td>
+    <td><%= transfered_product.quantity %></td>
+    <td><%= link_to 'Show', transfered_product %></td>
+    <td><%= link_to 'Edit', edit_transfered_product_path(transfered_product) %></td>
+    <td><%= link_to 'Destroy', transfered_product, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Transfered product', new_transfered_product_path %>
