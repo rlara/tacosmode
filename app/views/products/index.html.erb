@@ -1,0 +1,40 @@
+<div style="padding:20px 0 30px">
+<h1>Listing products</h1>
+</div>
+
+<% if @products.empty?  %>
+  <h3>Crea un producto </h3>
+<% elsif %>
+
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Sku</th>
+    <th>Date</th>
+    <th>Type</th>
+    <th>Lote</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.sku %></td>
+    <td><%= product.date %></td>
+    <td><%= product.units %></td>
+    <td><%= product.lote %></td>
+    <td><%= link_to 'Show', product %></td>
+    <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+</tbody>
+<% end %>
+</table>
+
+<br />
+<% end %>
+<%= link_to 'New Product', new_product_path, :class=>"btn btn-primary" %>
