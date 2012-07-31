@@ -14,68 +14,22 @@
     <div class="row">
       <div class="span4" style="float:right">
         <h2>Dar de alta un movimiento</h2>
-
+          <%=link_to "Salida", new_branch_transfer_path(@branch) %>
 
       </div>
       <div class="span8">
         <h2>Últimos Movimientos</h2>
-        <table class="table table-bordered">
-          <%= form_for(@transfer) do |f| %>
-            <% if @transfer.errors.any? %>
-              <div id="error_explanation">
-              <h2><%= pluralize(@transfer.errors.count, "error") %> prohibited this transfer from being saved:</h2>
-
-              <ul>
-                <% @transfer.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-                <% end %>
-              </ul>
-              </div>
-            <% end %>
-
-           <thead>
-            <tr>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-          <div class="actions">
-           <%= f.submit %>
-          </div>
-        <% end %>
-
+        <%= render :partial => "transfers/trans_partial", :locals => {:transfer_list => @transfers}%>
+        <form class="well form-inline">
+            <input type="text" class="input-small" placeholder="Email">
+           <input type="password" class="input-small" placeholder="Password">
+           <label class="checkbox">
+           <input type="checkbox"> Remember me
+           </label>
+           <button type="submit" class="btn btn-succes">+</button>
+           </form>
       </div>
     </div>
-
-
-
-  <div class="field">
-    <%= f.label :branches %><br />
-    <%= f.text_field :branches %>
-  </div>
-  <div class="field">
-    <%= f.label :mode %><br />
-    <%= f.text_field :mode %>
-  </div>
-  <div class="field">
-    <%= f.label :name_dealer %><br />
-    <%= f.text_field :name_dealer %>
-  </div>
-  <div class="field">
-    <%= f.label :date_output %><br />
-    <%= f.datetime_select :date_output %>
-  </div>
-  <div class="field">
-    <%= f.label :date_supply %><br />
-    <%= f.datetime_select :date_supply %>
-  </div>
 
 
 

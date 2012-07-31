@@ -14,7 +14,7 @@ class BranchesController < ApplicationController
   # GET /branches/1.json
   def show
     @branch = Branch.find(params[:id])
-
+    @transfers = @branch.transfers(params[@branch])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @branch }

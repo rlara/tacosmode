@@ -1,4 +1,4 @@
-<%= form_for(@transfer) do |f| %>
+<%= form_for([@branch, @transfer]) do |f| %>
   <% if @transfer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@transfer.errors.count, "error") %> prohibited this transfer from being saved:</h2>
@@ -12,16 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :branches %><br />
-    <%= f.text_field :branches %>
-  </div>
-  <div class="field">
     <%= f.label :mode %><br />
     <%= f.text_field :mode %>
   </div>
   <div class="field">
     <%= f.label :name_dealer %><br />
-    <%= f.text_field :name_dealer %>
+    <!--Aqui me quedeajkxnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+    <%= select(:transfer, :name_dealer, Transfer::DEALER.collect {|cat|, [cat,cat] }, {:include_blank => true}) %>
   </div>
   <div class="field">
     <%= f.label :date_output %><br />

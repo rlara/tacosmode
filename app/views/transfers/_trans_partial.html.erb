@@ -1,0 +1,32 @@
+<% transfer_list.each do |transfer| %>
+<h1>Listing transfers</h1>
+
+<table>
+  <tr>
+    <th>Branches</th>
+    <th>Mode</th>
+    <th>Name dealer</th>
+    <th>Date output</th>
+    <th>Date supply</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <tr>
+    <td><%= transfer.branches %></td>
+    <td><%= transfer.mode %></td>
+    <td><%= transfer.name_dealer %></td>
+    <td><%= transfer.date_output %></td>
+    <td><%= transfer.date_supply %></td>
+    <td><%= link_to 'Show', transfer %></td>
+    <td><%= link_to 'Edit', edit_transfer_path(transfer) %></td>
+    <td><%= link_to 'Destroy', transfer, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+
+</table>
+
+<br />
+
+<%= link_to 'New Transfer', new_transfer_path %>
+<% end  %>

@@ -1,4 +1,11 @@
 class TransfersController < ApplicationController
+  before_filter :get_branch
+
+  def get_branch
+    @branch = Branch.find(params[:branch_id])
+  end
+
+
   # GET /transfers
   # GET /transfers.json
   def index
@@ -24,7 +31,7 @@ class TransfersController < ApplicationController
   # GET /transfers/new
   # GET /transfers/new.json
   def new
-    @transfer = Transfer.new
+    @transfer = @branch.transfers.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,8 +47,7 @@ class TransfersController < ApplicationController
   # POST /transfers
   # POST /transfers.json
   def create
-    @transfer = Transfer.new(params[:transfer])
-
+    @transfer = @branch.transfers.create(params[:transfer])
     respond_to do |format|
       if @transfer.save
         format.html { redirect_to @transfer, notice: 'Transfer was successfully created.' }

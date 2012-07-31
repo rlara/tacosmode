@@ -1,5 +1,4 @@
 Tacosmode::Application.routes.draw do
-  resources :transfers
 
   resources :stock_items
 
@@ -7,7 +6,9 @@ Tacosmode::Application.routes.draw do
 
   resources :products
 
-  resources :branches
+  resources :branches do
+     resources :transfers
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
