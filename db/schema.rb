@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120727201734) do
+ActiveRecord::Schema.define(:version => 20120731205332) do
 
   create_table "branches", :force => true do |t|
     t.string   "name"
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(:version => 20120727201734) do
     t.datetime "date_supply"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "status"
+    t.string   "destination"
   end
 
   add_index "transfers", ["branch_id"], :name => "index_transfers_on_branch_id"

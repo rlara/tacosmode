@@ -50,7 +50,7 @@ class TransfersController < ApplicationController
     @transfer = @branch.transfers.create(params[:transfer])
     respond_to do |format|
       if @transfer.save
-        format.html { redirect_to @transfer, notice: 'Transfer was successfully created.' }
+        format.html { redirect_to branch_transfer_path(@branch,@transfer), notice: 'Transfer was successfully created.' }
         format.json { render json: @transfer, status: :created, location: @transfer }
       else
         format.html { render action: "new" }

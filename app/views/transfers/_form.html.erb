@@ -13,20 +13,26 @@
 
   <div class="field">
     <%= f.label :mode %><br />
-    <%= f.text_field :mode %>
+    <%= select(:transfer, :mode, Transfer::MODE.collect {|cat| [cat,cat] }) %>
+
   </div>
+
   <div class="field">
-    <%= f.label :name_dealer %><br />
-    <!--Aqui me quedeajkxnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
-    <%= select(:transfer, :name_dealer, Transfer::DEALER.collect {|cat|, [cat,cat] }, {:include_blank => true}) %>
+   <%= f.label :destination %>
+   <%= f.collection_select(:destination, Branch.all, :id, :name) %>
+ </div>
+
+<div class="field">
+    <%= f.label :name_dealer %>
+    <%= select(:transfer, :name_dealer, Transfer::DEALER.collect {|cat| [cat,cat] }) %>
   </div>
   <div class="field">
     <%= f.label :date_output %><br />
     <%= f.datetime_select :date_output %>
   </div>
   <div class="field">
-    <%= f.label :date_supply %><br />
-    <%= f.datetime_select :date_supply %>
+    <% f.label :date_supply %><br />
+    <% f.datetime_select :date_supply %>
   </div>
   <div class="actions">
     <%= f.submit %>
