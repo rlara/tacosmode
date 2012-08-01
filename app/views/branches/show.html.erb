@@ -14,24 +14,16 @@
     <div class="row">
       <div class="span4" style="float:right">
         <h2>Dar de alta un movimiento</h2>
-          <%=link_to "Salida", new_branch_transfer_path(@branch) %>
+        <%=link_to "Salida", new_branch_transfer_path(@branch), :class=>"btn btn-primary" %>
 
       </div>
       <div class="span8">
         <h2>Últimos Movimientos</h2>
         <%= render :partial => "transfers/trans_partial", :locals => {:transfer_list => @transfers}%>
-        <form class="well form-inline">
-            <input type="text" class="input-small" placeholder="Email">
-           <input type="password" class="input-small" placeholder="Password">
-           <label class="checkbox">
-           <input type="checkbox"> Remember me
-           </label>
-           <button type="submit" class="btn btn-succes">+</button>
-           </form>
-      </div>
-    </div>
-
 
 
 <%= link_to 'Edit', edit_branch_path(@branch) %> |
 <%= link_to 'Back', branches_path %>
+
+</div>
+

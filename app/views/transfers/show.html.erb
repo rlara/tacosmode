@@ -23,5 +23,5 @@
 </p>
 
 
-<#%= link_to 'Edit', edit_transfer_path(@transfer) %> |
-<#%= link_to 'Back', transfers_path %>
+<%= link_to 'Edit', edit_branch_transfer_path(@branch,@transfer), :class=>"btn btn-primary" %>
+<%= link_to 'Back', branch_path(@branch), :class=>"btn btn-primary" %>

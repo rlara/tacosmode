@@ -3,7 +3,7 @@ class Transfer < ActiveRecord::Base
   has_many :transfered_products
   attr_accessible :date_output, :date_supply, :mode, :name_dealer, :destination
 
-  after_create :create_status
+  before_create :create_status
 
   def create_status
     self.status = "pending"
