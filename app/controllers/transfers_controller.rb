@@ -20,8 +20,9 @@ class TransfersController < ApplicationController
   # GET /transfers/1
   # GET /transfers/1.json
   def show
-    @transfer = Transfer.find(params[:id])
-
+    @transfer = @branch.transfers.find(params[:id])
+    @transfered_product = @transfer.transfered_products.build
+    @product = Product.all
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @transfer }
@@ -32,7 +33,7 @@ class TransfersController < ApplicationController
   # GET /transfers/new.json
   def new
     @transfer = @branch.transfers.new
-
+    1.times {@transfer.transfered_products.build}
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @transfer }

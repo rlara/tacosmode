@@ -1,6 +1,7 @@
 <% transfer_list.each do |transfer| %>
 
 <table class="table">
+  <thead>
   <tr>
     <th>Mode</th>
     <th>Name dealer</th>
@@ -8,9 +9,9 @@
     <th>Date supply</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
-
+</thead>
+<tbody>
   <tr>
     <td><%= transfer.mode %></td>
     <td><%= transfer.name_dealer %></td>
@@ -20,11 +21,8 @@
     <td><%= link_to 'Edit', edit_branch_transfer_path(@branch,transfer),:class=>"btn btn-primary"  %></td>
     <td><%#= link_to 'Destroy', transfer, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
-
+</tbody>
 </table>
-
-
-     <br/>
 
 
 <% end  %>

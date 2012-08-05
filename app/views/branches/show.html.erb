@@ -22,8 +22,8 @@
         <%= render :partial => "transfers/trans_partial", :locals => {:transfer_list => @transfers}%>
 
 
-<%= link_to 'Edit', edit_branch_path(@branch) %> |
-<%= link_to 'Back', branches_path %>
+        <%= link_to 'Edit', edit_branch_path(@branch), :class=>"btn btn-primary" %> |
+        <%= link_to 'Back', branches_path, :class=>"btn" %>
 
 </div>
 

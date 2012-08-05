@@ -1,4 +1,15 @@
 class TransferedProductsController < ApplicationController
+  before_filter :get_transfer
+  before_filter :get_branch
+
+  def get_transfer
+    @transfer = Transfer.find(params[:transfer_id])
+  end
+  def get_branch
+    @branch = Branch.find(params[:branch_id])
+  end
+
+
   # GET /transfered_products
   # GET /transfered_products.json
   def index
@@ -44,7 +55,7 @@ class TransferedProductsController < ApplicationController
 
     respond_to do |format|
       if @transfered_product.save
-        format.html { redirect_to @transfered_product, notice: 'Transfered product was successfully created.' }
+        format.html { redirect_to branch_transfer_path(@branch,@transfer), notice: 'Transfered product was successfully created.' }
         format.json { render json: @transfered_product, status: :created, location: @transfered_product }
       else
         format.html { render action: "new" }
