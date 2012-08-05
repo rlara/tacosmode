@@ -1,9 +1,10 @@
 class Transfer < ActiveRecord::Base
   belongs_to :branch
   has_many :transfered_products
-  attr_accessible :date_output, :date_supply, :mode, :name_dealer, :destination
+  attr_accessible :date_output, :date_supply, :mode, :name_dealer, :destination, :transfered_products_attributes
 
   before_create :create_status
+  accepts_nested_attributes_for :transfered_products
 
   def create_status
     self.status = "pending"
@@ -25,5 +26,6 @@ MODE = ['Salida', 'Cierre', 'Proveedor']
     end
 
   end
+
 
 end

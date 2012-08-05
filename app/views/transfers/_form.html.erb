@@ -1,6 +1,5 @@
-<%= form_for([@branch, @transfer]) do |f| %>
+<%= form_for([@branch, @transfer],:html=>{:class=>"form-horizontal"}) do |f| %>
   <% if @transfer.errors.any? %>
-    <div id="error_explanation">
       <h2><%= pluralize(@transfer.errors.count, "error") %> prohibited this transfer from being saved:</h2>
 
       <ul>
@@ -8,33 +7,55 @@
         <li><%= msg %></li>
       <% end %>
       </ul>
-    </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :mode %><br />
+  <fieldset>
+
+  <div class="control-group">
+    <%= f.label :mode, :class=>"control-label" %>
+    <div class="controls">
     <%= select(:transfer, :mode, Transfer::MODE.collect {|cat| [cat,cat] }) %>
-
+    </div>
   </div>
 
-  <div class="field">
-   <%= f.label :destination %>
-   <%= f.collection_select(:destination, Branch.all, :id, :name) %>
- </div>
+  <div class="control-group">
+  <%= f.label :destination, :class=>"control-label" %>
+    <div class="controls">
+    <%= f.collection_select(:destination, Branch.all, :id, :name) %>
+    </div>
+  </div>
 
-<div class="field">
-    <%= f.label :name_dealer %>
+  <div class="control-group">
+  <%= f.label :name_dealer, :class=>"control-label" %>
+    <div class="controls">
     <%= select(:transfer, :name_dealer, Transfer::DEALER.collect {|cat| [cat,cat] }) %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :date_output %><br />
+
+  <div class="control-group">
+    <%= f.label :date_output, :class=>"control-label" %>
+    <div class="controls">
     <%= f.datetime_select :date_output %>
+    </div>
   </div>
-  <div class="field">
-    <% f.label :date_supply %><br />
+
+  <div class="control-group">
+    <% f.label :date_supply %>
+    <div class="controls">
     <% f.datetime_select :date_supply %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <h3>Agregar Productos<h3>
+      <div>
+      <%= f.fields_for :transfered_products do |builder|  %>
+        <%= render 'transfered_product_fields', :f => builder %>
+      <% end %>
+      </div>
+      <div>
+      <%= link_to_add_fields "Agregar Producto", f, :transfered_products %>
+      </div>
+  <div class="form-actions">
+    <%= f.submit 'Guardar', :class=>"btn btn-primary"%>
   </div>
+  </fieldset>
 <% end %>

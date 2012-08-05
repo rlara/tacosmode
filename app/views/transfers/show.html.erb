@@ -22,6 +22,10 @@
   <%= @transfer.date_supply %>
 </p>
 
-
+<h3>Productos</h3>
+<% for transfered_product in @transfer.transfered_products %>
+  <%= transfered_product.quantity  %>
+  <%= transfered_product.product_id  %>
+<% end %>
 <%= link_to 'Edit', edit_branch_transfer_path(@branch,@transfer), :class=>"btn btn-primary" %>
 <%= link_to 'Back', branch_path(@branch), :class=>"btn btn-primary" %>

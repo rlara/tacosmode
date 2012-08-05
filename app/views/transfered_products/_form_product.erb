@@ -4,7 +4,12 @@
     <%= f.text_field :quantity %>
     <p>Productos</p>
     <%= select(:transfered_product, :product_id, Product.all.collect {|p|[p.name, p.id]}, {:prompt => 'Selecciona un Producto'})%>
-   <%= f.hidden_field :transfer_id, :value=>@transfer.id %>
+    <% f.fields_for :transfered_products do |builder| %>
+      <%= builder.label :quantity %>
+      <%= builder.text_field :quantity %>
+
+    <% end %>
+    <%= f.hidden_field :transfer_id, :value=>@transfer.id %>
 
     <%= f.submit 'Guardar'%>
 
