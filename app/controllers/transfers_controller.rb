@@ -34,6 +34,7 @@ class TransfersController < ApplicationController
   def new
     @transfer = @branch.transfers.new
     1.times {@transfer.transfered_products.build}
+    @condicion = 2
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @transfer }
@@ -43,10 +44,13 @@ class TransfersController < ApplicationController
   # GET /transfers/1/edit
   def edit
     @transfer = Transfer.find(params[:id])
+    @condicion = 2
+
   end
 
 	def entry
     @transfer = Transfer.find(params[:id])
+    @condicion = 1
   end
 
   # POST /transfers
