@@ -9,6 +9,9 @@ Tacosmode::Application.routes.draw do
     resources :transfers do
       resources :transfered_products
     end
+    match "/transfers/:id/entry" => "transfers#entry", :as => 'entry' do
+      resources :transfered_products
+    end
   end
 
   # The priority is based upon order of creation:

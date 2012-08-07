@@ -1,0 +1,28 @@
+<%= form_for([@branch, @transfer],:html=>{:class=>"form-horizontal"}) do |f| %>
+ <fieldset>
+  <%= f.hidden_field :status, :value => 'succes' %>
+  <div class="control-group">
+  <%= f.label :name_dealer, :class=>"control-label" %>
+    <div class="controls">
+      <%= select(:transfer, :name_dealer, Transfer::DEALER.collect {|cat| [cat,cat] }, :class => '') %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :date_supply, "Fecha de entrada" %>
+    <div class="controls">
+      <%= f.datetime_select :date_supply %>
+    </div>
+  </div>
+  <h3>Agregar Productos<h3>
+      <form class="well form-inline">
+      <%= f.fields_for :transfered_products do |builder|  %>
+        <%= render 'transfered_product_fields', :f => builder %>
+      <% end %>
+      </form>
+<div class="form-actions">
+    <%= f.submit 'Guardar', :class=>"btn btn-primary"%>
+    <%= link_to 'Back', branch_path(@branch), :class=>"btn" %>
+  </div>
+  </fieldset>
+<% end %>

@@ -15,7 +15,9 @@ class BranchesController < ApplicationController
   def show
     @branch = Branch.find(params[:id])
     @transfers = @branch.transfers(params[@branch])
+    @transfers_entry = Transfer.where(:status => 'pending', :destination =>(params[:id]))
     respond_to do |format|
+
       format.html # show.html.erb
       format.json { render json: @branch }
     end

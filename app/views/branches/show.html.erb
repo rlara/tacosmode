@@ -16,7 +16,10 @@
         <h2>Dar de alta un movimiento</h2>
         <%=link_to "Salida", new_branch_transfer_path(@branch), :class=>"btn btn-primary" %>
 
+        <%= render :partial => "transfers/trans_entry_partial", :locals => {:trans_list => @transfers_entry}%>
+
       </div>
+
       <div class="span8">
         <h2>Últimos Movimientos</h2>
         <%= render :partial => "transfers/trans_partial", :locals => {:transfer_list => @transfers}%>

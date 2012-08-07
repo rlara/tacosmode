@@ -1,0 +1,21 @@
+<% trans_list.each do |transfer| %>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Name dealer</th>
+    <th>Date output</th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><%= transfer.name_dealer %></td>
+    <td><%= transfer.date_output %></td>
+    <td><%= link_to 'Entrada', branch_entry_path(@branch,transfer),:class=>"btn btn-primary"  %></td>
+  </tr>
+</tbody>
+</table>
+
+
+<% end  %>

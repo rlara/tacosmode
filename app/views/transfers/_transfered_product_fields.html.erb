@@ -1,19 +1,17 @@
+
 <div class="fields">
-	<div class="control-group">
-       <%= f.label "Producto", :class=>"control-label" %>
-        <div class="controls">
-          <%= f.select(:product_id, Product.all.collect {|p|[p.name, p.id]}, {:prompt => 'Selecciona un Producto'})%>
-        </div>
-      </div>
-      <div class="control-group">
-        <%= f.label 'Cantidad', :class=>"control-label" %>
-        <div class="controls">
-          <%= f.text_field :quantity, :class=>"input-small" %>
-        </div>
 
-      </div>
+    <%= f.label "Producto", :class=>"control-label" %>
+    <%= f.select(:product_id, Product.all.collect {|p|[p.name, p.id]}, {:prompt => 'Selecciona un Producto'})%>
 
-    <%= link_to_remove_fields "remove", f %>
+
+    <%= f.text_field :quantity, :class=>"input-small", :placeholder=>'Cantidad' %>
+
+    <%= f.text_area :note, :rows=>"2", :placeholder=>'Agrega una Nota' %>
+
+
+     <!-- <div style="padding:0px 350px 20px">
+       -->
+        <%= link_to_remove_fields "_", f %>
 
 </div>
-

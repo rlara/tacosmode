@@ -1,7 +1,8 @@
 class Transfer < ActiveRecord::Base
   belongs_to :branch
   has_many :transfered_products
-  attr_accessible :date_output, :date_supply, :mode, :name_dealer, :destination, :transfered_products_attributes
+  attr_accessible :date_output, :date_supply, :mode, :name_dealer, :destination, :transfered_products_attributes, :status
+  validates :destination, :name_dealer, :presence => true
 
   before_create :create_status
   accepts_nested_attributes_for :transfered_products

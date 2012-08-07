@@ -45,10 +45,6 @@ class TransfersController < ApplicationController
     @transfer = Transfer.find(params[:id])
   end
 
-	def entry
-    @transfer = Transfer.find(params[:id])
-  end
-
   # POST /transfers
   # POST /transfers.json
   def create
@@ -71,7 +67,7 @@ class TransfersController < ApplicationController
 
     respond_to do |format|
       if @transfer.update_attributes(params[:transfer])
-        format.html { redirect_to branch_path(@branch)}
+        format.html { redirect_to @transfer, notice: 'Transfer was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
