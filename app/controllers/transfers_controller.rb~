@@ -34,35 +34,15 @@ class TransfersController < ApplicationController
   def new
     @transfer = @branch.transfers.new
     1.times {@transfer.transfered_products.build}
-    @condicion = 2
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @transfer }
     end
   end
 
-
-  def new1
-    @transfer = @branch.transfers.new
-    1.times {@transfer.transfered_products.build}
-    @condicion = 2
-    respond_to do |format|
-      format.html # new_provision.html.erb
-      format.json { render json: @transfer }
-    end
-  end
-
-
   # GET /transfers/1/edit
   def edit
     @transfer = Transfer.find(params[:id])
-    @condicion = 2
-
-  end
-
-  def entry
-    @transfer = Transfer.find(params[:id])
-    @condicion = 1
   end
 
   # POST /transfers
@@ -87,7 +67,7 @@ class TransfersController < ApplicationController
 
     respond_to do |format|
       if @transfer.update_attributes(params[:transfer])
-        format.html { redirect_to branch_path(@branch)}
+        format.html { redirect_to @transfer, notice: 'Transfer was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

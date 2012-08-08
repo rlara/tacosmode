@@ -4,11 +4,21 @@ Tacosmode::Application.routes.draw do
 
 
   resources :products
+  get "branches/:branch_id/transfers/new1" => 'transfers#new1', :as=>'new1_branch_transfer'  do
+      resources :transfered_products
+    end
 
   resources :branches do
+
     resources :transfers do
       resources :transfered_products
     end
+
+    match "/transfers/:id/entry" => "transfers#entry", :as => 'entry' do
+      resources :transfered_products
+    end
+
+
   end
 
   # The priority is based upon order of creation:

@@ -14,8 +14,11 @@ class BranchesController < ApplicationController
   # GET /branches/1.json
   def show
     @branch = Branch.find(params[:id])
-    @transfers = @branch.transfers(params[@branch])
+    @transfers = @branch.transfers.order('created_at DESC')
+    @transfers_list_e = Transfer.where(:destination=>(params[:id]))
+    @transfers_entry = Transfer.where(:status => 'pending', :destination =>(params[:id]))
     respond_to do |format|
+
       format.html # show.html.erb
       format.json { render json: @branch }
     end

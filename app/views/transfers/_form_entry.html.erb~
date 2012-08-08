@@ -1,0 +1,23 @@
+<%= form_for([@branch, @transfer],:html=>{:class=>"form-horizontal"}) do |f| %>
+ <fieldset>
+
+  <div class="control-group">
+  <%= f.label :name_dealer, :class=>"control-label" %>
+    <div class="controls">
+    <%= select(:transfer, :name_dealer, Transfer::DEALER.collect {|cat| [cat,cat] }) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :date_supply %>
+    <div class="controls">
+    <%= f.datetime_select :date_supply %>
+    </div>
+  </div>
+  <h3>Agregar Productos<h3>
+      <form class="well form-inline">
+      <%= f.fields_for :transfered_products do |builder|  %>
+        <%= render 'transfered_product_fields', :f => builder %>
+      <% end %>
+      </form>
+<% end %>
