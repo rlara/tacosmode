@@ -3,10 +3,10 @@
 
   <%= f.label "Producto", :class=>"control-label" %>
   <% if @condicion == 1 %>
-    <%= f.select(:product_id, Product.all.collect {|p|[p.name, p.id]}, {:prompt => 'Selecciona un Producto'}, {:disabled => true})%>
+    <%= f.select(:product_id, Product.all.collect {|p|[p.name, p.id]}, {:prompt => 'Selecciona un Producto'}, {:disabled => true}, :class=>"enterprod")%>
     <%= f.text_field :quantity, :class=>"input-small", :placeholder=>'Cantidad', :disabled => true %>
   <% else %>
-    <%= f.select(:product_id, Product.all.collect {|p|[p.name, p.id]}, {:prompt => 'Selecciona un Producto'})%>
+    <%= f.select(:product_id, Product.all.collect {|p|[p.name, p.id]}, {:prompt => 'Selecciona un Producto'}, :class => "enterprod")%>
 
     <%= f.text_field :quantity, :class=>"input-small", :placeholder=>'Cantidad' %>
 <% end  %>
@@ -15,4 +15,5 @@
 
     <%= link_to_remove_fields "_", f %>
 
-</div>
+  </div>
+

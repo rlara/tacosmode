@@ -1,30 +1,32 @@
+<form class="well">
 <p id="notice"><%= notice %></p>
 
-<p>
+<p style="font-size:15px">
   <b>Name:</b>
   <%= @product.name %>
 </p>
 
-<p>
+<p style="font-size:15px">
   <b>Sku:</b>
   <%= @product.sku %>
 </p>
 
-<p>
+<p style="font-size:15px">
   <b>Date:</b>
   <%= @product.date %>
 </p>
 
-<p>
+<p style="font-size:15px">
   <b>Type:</b>
   <%= @product.units %>
 </p>
 
-<p>
+<p style="font-size:15px">
   <b>Lote:</b>
   <%= @product.lote %>
 </p>
 
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Edit', edit_product_path(@product), :class=>"btn btn-primary" %> |
+<%= link_to 'Back', products_path, :class=>"btn" %>
+</form>
