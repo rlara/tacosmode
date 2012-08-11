@@ -11,6 +11,62 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20120811174550) do
+
+  create_table "branches", :force => true do |t|
+    t.string   "name"
+    t.text     "location"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.text     "sku"
+    t.date     "date"
+    t.string   "units"
+    t.integer  "lote"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.boolean  "status"
+    t.decimal  "price"
+  end
+
+  create_table "stock_items", :force => true do |t|
+    t.integer  "branch_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "stock_items", ["branch_id"], :name => "index_stock_items_on_branch_id"
+  add_index "stock_items", ["product_id"], :name => "index_stock_items_on_product_id"
+
+  create_table "transfered_products", :force => true do |t|
+    t.integer  "transfer_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "note"
+  end
+
+  add_index "transfered_products", ["product_id"], :name => "index_transfered_products_on_product_id"
+  add_index "transfered_products", ["transfer_id"], :name => "index_transfered_products_on_transfer_id"
+
+  create_table "transfers", :force => true do |t|
+    t.integer  "branch_id"
+    t.string   "mode"
+    t.string   "name_dealer"
+    t.datetime "date_output"
+    t.datetime "date_supply"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "status"
+    t.string   "destination"
+  end
+
+  add_index "transfers", ["branch_id"], :name => "index_transfers_on_branch_id"
 
 end

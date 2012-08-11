@@ -35,9 +35,15 @@
   <div class="control-group">
     <%= f.label :date_output, :class=>"control-label" %>
     <div class="controls">
-    <%= f.datetime_select :date_output %>
+    <%= f.text_field :date_output %>
     </div>
   </div>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#transfer_date_output').datetimepicker();
+    });
+
+  </script>
 
   <div class="control-group">
     <% f.label :date_supply %>
@@ -51,7 +57,7 @@
         <%= render 'transfered_product_fields', {:f => builder, :condicion=>@condicion} %>
       <% end %>
     </form>
-      <div style="padding:0px 50px">
+      <div id="onenter" style="padding:0px 50px">
       <%= link_to_add_fields "+", f, :transfered_products %>
       </div>
   <div class="form-actions">
@@ -60,3 +66,4 @@
   </div>
   </fieldset>
 <% end %>
+
