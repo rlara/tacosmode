@@ -9,7 +9,7 @@
     <%= f.select(:product_id, Product.all.collect {|p|[p.name, p.id]}, {:prompt => 'Selecciona un Producto'}, :class => "enterprod")%>
 
     <%= f.text_field :quantity, :class=>"input-small", :placeholder=>'Cantidad' %>
-<% end  %>
+  <% end  %>
 
     <%= f.text_area :note, :rows=>"2", :placeholder=>'Agrega una Nota' %>
 
