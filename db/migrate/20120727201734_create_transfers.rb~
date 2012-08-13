@@ -7,7 +7,6 @@ class CreateTransfers < ActiveRecord::Migration
       t.date :date_output
       t.date :date_supply
       t.string :status
-      t.string :destination
 
       t.timestamps
     end

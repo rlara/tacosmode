@@ -1,14 +1,14 @@
 
 <div class="fields">
 
-  <%= f.label "Producto", :class=>"control-label" %>
+  <%= f.label "Cantidad", :class=>"control-label" %>
   <% if @condicion == 1 %>
-    <%= f.select(:product_id, Product.all.collect {|p|[p.name, p.id]}, {:prompt => 'Selecciona un Producto'}, {:disabled => true}, :class=>"enterprod")%>
     <%= f.text_field :quantity, :class=>"input-small", :placeholder=>'Cantidad', :disabled => true %>
-  <% else %>
-    <%= f.select(:product_id, Product.all.collect {|p|[p.name, p.id]}, {:prompt => 'Selecciona un Producto'}, :class => "enterprod")%>
 
-    <%= f.text_field :quantity, :class=>"input-small", :placeholder=>'Cantidad' %>
+    <%= f.select(:product_id, Product.all.collect {|p|[p.name, p.id]}, {:prompt => 'Selecciona un Producto'}, {:disabled => true}, :class=>"enterprod")%>
+  <% else %>
+    <%= f.text_field :quantity, :class=>"input-small", :placeholder=>'Cantidad', :value=>1 %>
+    <%= f.select(:product_id, Product.all.collect {|p|[p.name, p.id]}, {:prompt => 'Selecciona un Producto'}, :class => "enterprod")%>
   <% end  %>
 
     <%= f.text_area :note, :rows=>"2", :placeholder=>'Agrega una Nota' %>

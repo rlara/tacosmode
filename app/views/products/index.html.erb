@@ -1,5 +1,5 @@
 <div style="padding:20px 0 30px">
-<h1>Listing products</h1>
+<h1>Lista de productos</h1>
 </div>
 <% if @products.empty?  %>
   <h3>Crea un producto </h3>
@@ -7,10 +7,10 @@
 <table class="table table-striped">
 <thead>
   <tr>
-    <th>Name</th>
+    <th>Nombre</th>
     <th>Sku</th>
-    <th>Date</th>
-    <th>Units</th>
+    <th>Fecha</th>
+    <th>Unidad</th>
     <th>Lote</th>
     <th></th>
     <th></th>
@@ -35,5 +35,5 @@
 
 <br />
 <% end %>
-<%= link_to 'New Product', new_product_path, :class=>"btn btn-primary" %>|
-<%= link_to 'Back', branches_path, :class=>"btn"  %>
+<%= link_to 'Nuevo Producto', new_product_path, :class=>"btn btn-primary" %>|
+<%= link_to 'Regresar', branches_path, :class=>"btn"  %>

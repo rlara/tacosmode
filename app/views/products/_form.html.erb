@@ -34,7 +34,10 @@
    </div>
 <script type="text/javascript">
     $(document).ready(function () {
-      $('#product_date').datepicker();
+        $('#product_date').datepicker();
+        $('#product_date').datepicker('option', {dateFormat: 'yy-mm-dd'});
+        $("#startDate").datepicker({dateFormat: 'yy-mm-dd'});
+
     });
 
   </script>

@@ -5,7 +5,6 @@ class CreateTransferedProducts < ActiveRecord::Migration
       t.references :product
       t.integer :quantity
       t.text :note
-      t.integer :difference
 
       t.timestamps
     end

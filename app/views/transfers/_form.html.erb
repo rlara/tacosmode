@@ -38,17 +38,10 @@
     <%= f.text_field :date_output %>
     </div>
   </div>
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $('#transfer_date_output').datepicker();
-    });
-
-  </script>
-
-  <div class="control-group">
+    <div class="control-group">
     <% f.label :date_supply %>
     <div class="controls">
-    <% f.datetime_select :date_supply %>
+    <% f.text_field :date_supply %>
     </div>
   </div>
   <h3>Agregar Productos<h3>

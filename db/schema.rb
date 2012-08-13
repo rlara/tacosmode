@@ -11,8 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20120811174550) do
+ActiveRecord::Schema.define(:version => 20120727201734) do
 
   create_table "branches", :force => true do |t|
     t.string   "name"
@@ -27,10 +26,10 @@ ActiveRecord::Schema.define(:version => 20120811174550) do
     t.date     "date"
     t.string   "units"
     t.integer  "lote"
+    t.decimal  "price"
+    t.boolean  "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.boolean  "status"
-    t.decimal  "price"
   end
 
   create_table "stock_items", :force => true do |t|
@@ -48,9 +47,10 @@ ActiveRecord::Schema.define(:version => 20120811174550) do
     t.integer  "transfer_id"
     t.integer  "product_id"
     t.integer  "quantity"
+    t.text     "note"
+    t.integer  "difference"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.text     "note"
   end
 
   add_index "transfered_products", ["product_id"], :name => "index_transfered_products_on_product_id"
@@ -60,12 +60,12 @@ ActiveRecord::Schema.define(:version => 20120811174550) do
     t.integer  "branch_id"
     t.string   "mode"
     t.string   "name_dealer"
-    t.datetime "date_output"
-    t.datetime "date_supply"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.date     "date_output"
+    t.date     "date_supply"
     t.string   "status"
     t.string   "destination"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "transfers", ["branch_id"], :name => "index_transfers_on_branch_id"
