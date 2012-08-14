@@ -2,11 +2,20 @@
 
 <%= render 'form' %>
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   $(document).keyup(function(e){
-      if(e.keyCode == 13) {
-          $('#enterp').trigger('click');
-      }
+      if(e.keyCode == 13)() {
+        $('#enterp').trigger('click');
+        }
+function validateForm()
+{
+var x=document.forms["new_transfer"]["fname"].value;
+if (x==null || x=="")
+  {
+  alert("First name must be filled out");
+  return false;
+  }
+}
   });
 </script>
 

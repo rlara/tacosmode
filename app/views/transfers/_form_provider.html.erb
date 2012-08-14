@@ -1,0 +1,30 @@
+<%= form_for([@branch, @transfer],:html=>{:class=>"form-horizontal"}) do |f| %>
+ <fieldset>
+  <%= f.hidden_field :status, :value => 'succes' %>
+
+  <div class="control-group">
+    <%= f.label :date_supply, "Fecha de entrada", :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :date_supply %>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function () {
+        $('#transfer_date_supply').datepicker();
+        $('#transfer_date_supply').datepicker('option', {dateFormat: 'yy-mm-dd'});
+        $("#startDate").datepicker({dateFormat: 'yy-mm-dd'});
+    });
+  </script>
+
+  <h3>Productos<h3>
+      <form class="well form-inline">
+      <%= f.fields_for :transfered_products do |builder|  %>
+        <%= render 'transfered_product_fields', {:f => builder, :condicion=>@condicion} %>
+      <% end %>
+      </form>
+<div class="form-actions">
+    <%= f.submit 'Guardar', :class=>"btn btn-primary"%>
+    <%= link_to 'Regresar', branch_path(@branch), :class=>"btn" %>
+  </div>
+  </fieldset>
+<% end %>
