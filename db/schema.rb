@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120727201734) do
+ActiveRecord::Schema.define(:version => 20120813200308) do
 
   create_table "branches", :force => true do |t|
     t.string   "name"
@@ -49,8 +49,9 @@ ActiveRecord::Schema.define(:version => 20120727201734) do
     t.integer  "quantity"
     t.text     "note"
     t.integer  "difference"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "quantity_entry"
   end
 
   add_index "transfered_products", ["product_id"], :name => "index_transfered_products_on_product_id"

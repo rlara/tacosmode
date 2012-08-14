@@ -10,6 +10,10 @@ class BranchesController < ApplicationController
     end
   end
 
+  def index_users
+
+  end
+
   # GET /branches/1
   # GET /branches/1.json
   def show

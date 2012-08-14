@@ -2,8 +2,10 @@ Tacosmode::Application.routes.draw do
 
   resources :stock_items
 
+  match "users" => 'branches#index_users', :as=>'users'
 
   resources :products
+
   get "branches/:branch_id/transfers/new1" => 'transfers#new1', :as=>'new1_branch_transfer'  do
       resources :transfered_products
     end

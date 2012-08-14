@@ -12,34 +12,34 @@
   <fieldset>
 
   <div class="control-group">
-    <%= f.label :mode, :class=>"control-label" %>
+    <%= f.label 'Tipo de transferencia', :class=>"control-label" %>
     <div class="controls">
     <%= select(:transfer, :mode, Transfer::MODE.collect {|cat| [cat,cat] }) %>
     </div>
   </div>
 
   <div class="control-group">
-  <%= f.label :destination, :class=>"control-label" %>
+  <%= f.label 'Destino Entrada', :class=>"control-label" %>
     <div class="controls">
     <%= f.collection_select(:destination, Branch.all, :id, :name) %>
     </div>
   </div>
 
   <div class="control-group">
-  <%= f.label :name_dealer, :class=>"control-label" %>
+  <%= f.label 'Repartidor', :class=>"control-label" %>
     <div class="controls">
     <%= f.select(:name_dealer, Transfer::DEALER.collect {|cat| [cat,cat] }) %>
     </div>
   </div>
 
   <div class="control-group">
-    <%= f.label :date_output, :class=>"control-label" %>
+    <%= f.label 'Fecha salida', :class=>"control-label" %>
     <div class="controls">
     <%= f.text_field :date_output %>
     </div>
   </div>
     <div class="control-group">
-    <% f.label :date_supply %>
+    <% f.label 'Fecha salida' %>
     <div class="controls">
     <% f.text_field :date_supply %>
     </div>

@@ -11,9 +11,17 @@
   <div class="control-group">
     <%= f.label :date_supply, "Fecha de entrada", :class=>"control-label" %>
     <div class="controls">
-      <%= f.datetime_select :date_supply %>
+      <%= f.text_field :date_supply %>
     </div>
   </div>
+  <script type="text/javascript">
+    $(document).ready(function () {
+        $('#transfer_date_supply').datepicker();
+        $('#transfer_date_supply').datepicker('option', {dateFormat: 'yy-mm-dd'});
+        $("#startDate").datepicker({dateFormat: 'yy-mm-dd'});
+    });
+  </script>
+
   <h3>Productos<h3>
       <form class="well form-inline">
       <%= f.fields_for :transfered_products do |builder|  %>
