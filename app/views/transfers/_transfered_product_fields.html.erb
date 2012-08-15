@@ -11,7 +11,7 @@
 
   <% else %>
     <%= f.text_field :quantity, :class=>"input-small", :placeholder=>'Cantidad', :value=>1 %>
-    <%= f.select(:product_id, Product.all.collect {|p|[[p.sku, p.name], p.id]}, {:prompt => 'Selecciona un Producto'}, :class => "enterprod")%>
+    <%= f.select(:product_id, Product.all.collect {|p|[p.sku + "  " + p.name, p.id]}, {:prompt => 'Selecciona un Producto'}, :class => "enterprod")%>
   <% end  %>
 
   <%= f.text_area :note, :rows=>"2", :placeholder=>'Agrega una Nota' %>
