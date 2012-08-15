@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120813200308) do
+ActiveRecord::Schema.define(:version => 20120815185629) do
 
   create_table "branches", :force => true do |t|
     t.string   "name"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(:version => 20120813200308) do
     t.text     "sku"
     t.date     "date"
     t.string   "units"
-    t.integer  "lote"
     t.decimal  "price"
     t.boolean  "status"
     t.datetime "created_at", :null => false

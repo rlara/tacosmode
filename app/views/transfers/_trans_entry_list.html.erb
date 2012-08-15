@@ -1,0 +1,21 @@
+<% transfer_list.each do |transfer| %>
+<table class="table table-condensed">
+  <thead>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+    <td><%= transfer.name_dealer %></td>
+    <td><%= transfer.date_supply %></td>
+    <td><%= link_to 'Show', branch_transfer_path(transfer.branch,transfer), :class=>"btn btn-primary" %></td>
+  </tr>
+</tbody>
+</table>
+
+
+<% end  %>

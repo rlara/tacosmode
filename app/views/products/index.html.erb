@@ -9,9 +9,8 @@
   <tr>
     <th>Nombre</th>
     <th>Sku</th>
-    <th>Fecha</th>
+    <th>Fecha de caducidad</th>
     <th>Unidad</th>
-    <th>Lote</th>
     <th></th>
     <th></th>
     <th></th>
@@ -24,7 +23,6 @@
     <td><%= product.sku %></td>
     <td><%= product.date %></td>
     <td><%= product.units %></td>
-    <td><%= product.lote %></td>
     <td><%= link_to 'Show', product %></td>
     <td><%= link_to 'Edit', edit_product_path(product) %></td>
     <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>

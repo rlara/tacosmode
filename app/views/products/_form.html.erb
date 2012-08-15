@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="control-group">
-    <%= f.label :name, :class=>"control-label" %>
+    <%= f.label 'Nombre', :class=>"control-label" %>
   <div class="controls">
       <%= f.text_field :name, :class =>"input-xlarge"%>
       </div>
@@ -27,7 +27,7 @@
   </div>
 
   <div class="control-group">
-    <%= f.label :date, :class=>"control-label" %>
+    <%= f.label 'Fecha de Caducidad', :class=>"control-label" %>
    <div class="controls">
      <%= f.text_field :date %>
      </div>
@@ -43,19 +43,13 @@
   </script>
 
   <div class="control-group">
-    <%= f.label :units, :class=>"control-label" %>
+    <%= f.label 'Unidad', :class=>"control-label" %>
     <div class="controls">
       <%= f.text_field :units, :class=>"input-xlarge"%>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label :lote, :class=>"control-label"%>
-    <div class="controls">
-      <%= f.number_field :lote, :class=>"input-xlarge" %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :price, :class=>"control-label"%>
+    <div class="control-group">
+    <%= f.label 'Precio', :class=>"control-label"%>
     <div class="controls">
       <%= f.number_field :price, :class=>"input-xlarge" %>
     </div>

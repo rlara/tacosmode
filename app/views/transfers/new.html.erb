@@ -3,18 +3,17 @@
 <%= render 'form' %>
 
 <script type="text/javascript">
+    $('select.enp:last').keyup(function(e){
+      if(e.keyCode == 13) {
+        $('#enterp').trigger('click');
+        var f = $("select.enp:last").attr("id")
+        alert(f);
 
-  $('select[name*="transfered_products"]').keyup(function(e){
-  $("select").attr("id", function (arr) {
-    return arr;
-  })
-  .each(function () {
-    if(e.keyCode == 13) {
-      $('#enterp').trigger('click');
-    };
-  });
+      };
+    });
 
-  });
+$(document).ready(function(){$('#enterp').click (function(){$("select.enp").attr("id", function (arr) {return arr;}).each(function(){  });});
+});
 </script>
 
 
